@@ -3,6 +3,7 @@ import First from './components/First';
 import './App.css';
 import NavBar from './components/NavBar';
 import TextForm from './components/TextForm';
+import About from './components/About';
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
       {/* <First /> */}
       <NavBar title="TextUtils" />
       <div className="container">
-      <TextForm heading="Enter Text to Analyze"/>
+        {/* <TextForm heading="Enter Text to Analyze"/> */}
+        <About/>
       </div>
       
     </div>
