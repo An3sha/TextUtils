@@ -8,12 +8,20 @@ export default function TextForm(props) {
     let newText = text.toUpperCase();
     setText(newText)
   }
+
+  const handleLowClick = () => {
+    let newText = text.toLowerCase();
+    setText(newText)
+  }
   const handleOnChange = (event) => {
     // console.log("Onchange was clicked");
     setText(event.target.value);
   }
+  const handleClear = () => {
+    setText('')
+  }
 
-  const [text, setText] = useState('Enter text here');
+  const [text, setText] = useState('');
 
   return (
     <>
@@ -28,13 +36,21 @@ export default function TextForm(props) {
             rows="8"
           ></textarea>
         </div>
-        <button className="btn btn-primary" onClick={handleUpClick}>
+        <button className="btn btn-primary mx-1" onClick={handleUpClick}>
           Convert to Uppercase
+        </button>
+        <button className="btn btn-primary mx-1" onClick={handleLowClick}>
+          Convert to Lowercase
+        </button>
+        <button className="btn btn-primary mx-1" onClick={handleClear}>
+          Clear text
         </button>
       </div>
       <div className="container my-3">
-        <h1>Your text summary</h1>
-        <p>{text.split(" ").length} words and {text.length} characters</p>
+        <h2>Your text summary</h2>
+        <p>
+          {text.split(" ").length} words and {text.length} characters
+        </p>
         <h2>Preview</h2>
         <p>{text}</p>
       </div>
