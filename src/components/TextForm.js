@@ -1,26 +1,44 @@
 import React, { useState } from 'react'
-  
-
 
 export default function TextForm(props) {
+
+  //text to upper case
   const handleUpClick = () => {
     // console.log("Uppercase was clicked" + text);
     let newText = text.toUpperCase();
     setText(newText)
   }
 
+  //text to lower case
   const handleLowClick = () => {
     let newText = text.toLowerCase();
     setText(newText)
   }
+
+  //change text
   const handleOnChange = (event) => {
     // console.log("Onchange was clicked");
     setText(event.target.value);
   }
+
+  //clear text
   const handleClear = () => {
     setText('')
   }
 
+  //copy text
+  const handleCopy = () => {
+    let textCopy = document.getElementById('myBox');
+    textCopy.select();
+    navigator.clipboard.writeText(textCopy.value);
+  }
+
+  //remove extra spaces
+  const handleExtraSpaces = () => {
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" "))
+  }
+  
   const [text, setText] = useState('');
 
   return (
@@ -44,6 +62,12 @@ export default function TextForm(props) {
         </button>
         <button className="btn btn-primary mx-1" onClick={handleClear}>
           Clear text
+        </button>
+        <button className="btn btn-primary mx-1" onClick={handleCopy}>
+          Copy text
+        </button>
+        <button className="btn btn-primary mx-1" onClick={handleExtraSpaces}>
+          Remove extra spaces
         </button>
       </div>
       <div className="container my-3">

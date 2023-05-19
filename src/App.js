@@ -11,8 +11,8 @@ function App() {
       {/* <First /> */}
       <NavBar title="TextUtils" />
       <div className="container">
-        {/* <TextForm heading="Enter Text to Analyze"/> */}
-        <About/>
+        <TextForm heading="Enter Text to Analyze"/>
+        {/* <About/> */}
       </div>
       
     </div>
