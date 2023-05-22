@@ -26,8 +26,7 @@ export default function TextForm(props) {
     setText('')
   }
 
-  //copy text
-  const handleCopy = () => {
+   const handleCopy = () => {
     let textCopy = document.getElementById('myBox');
     textCopy.select();
     navigator.clipboard.writeText(textCopy.value);
@@ -43,12 +42,18 @@ export default function TextForm(props) {
 
   return (
     <>
-      <div className="container">
+      <div
+        className="container"
+        style={{ color: props.mode === "dark" ? "white" : "black" }}
+      >
         <h1>{props.heading}</h1>
         <div className="mb-3">
           <textarea
             className="form-control"
             onChange={handleOnChange}
+            style={{
+              backgroundColor: props.mode === "dark" ? "grey" : "white",
+            }}
             value={text}
             id="myBox"
             rows="8"
@@ -70,8 +75,11 @@ export default function TextForm(props) {
           Remove extra spaces
         </button>
       </div>
-      <div className="container my-3">
-        <h2>Your text summary</h2>
+      <div
+        className="container my-3"
+        style={{ color: props.mode === "dark" ? "white" : "black" }}
+      
+        ><h2>Your text summary</h2>
         <p>
           {text.split(" ").length} words and {text.length} characters
         </p>
